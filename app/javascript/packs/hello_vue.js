@@ -5,11 +5,36 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+
+import VueApollo from 'vue-apollo'
 import Vue from 'vue'
-import App from '../app.vue'
+import App from './app.vue'
+
+const httpLink = new HttpLink({
+  uri: 'http://localhost:3000/graphql'
+})
+
+const apolloClient = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+  connectToDevTools: true
+})
+
+Vue.use(VueApollo)
+
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+  defaultOptions: {
+    $loadingKey: 'loading'
+  }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
+    provide: apolloProvider.provide(),
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)

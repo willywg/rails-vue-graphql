@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <user-list></user-list>
   </div>
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
+  import UserList from './components/UserList'
+
+  export default {
+    name: 'app',
+    components: {
+      UserList
     }
   }
-}
 </script>
 
 <style scoped>
