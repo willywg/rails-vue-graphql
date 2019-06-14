@@ -11,3 +11,19 @@ export const ALL_USERS_QUERY = gql`
     }
   }
 `
+
+export const CREATE_USER_MUTATION = gql`
+  mutation createUserMutation($name: String!, $email: String!) {
+    createUser(input: {
+      name: $name,
+      email: $email
+    }) {
+      user {
+        id
+        name
+        email
+      }
+      errors
+    }
+  }
+`
