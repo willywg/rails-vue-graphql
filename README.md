@@ -8,3 +8,4 @@
 2. `docker-compose run rails bundle install`
 3. `docker-compose run rails rails db:create`
 4. `docker-compose up`
+5. Go to: http://localhost:3000
