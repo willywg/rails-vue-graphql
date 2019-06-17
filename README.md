@@ -1,3 +1,7 @@
+# Summary
+
+* Graphql with Rails is based on Matt Boldt tutorial: https://mattboldt.com/2019/01/07/rails-and-graphql/
+* Vue with Apollo is based on Nikolas Burk tutorial: https://www.howtographql.com/vue-apollo/0-introduction/
 # Setup
 
 1. `docker-compose build`
